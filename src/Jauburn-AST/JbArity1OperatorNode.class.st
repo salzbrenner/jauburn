@@ -9,6 +9,14 @@ Class {
 }
 
 { #category : #accessing }
+JbArity1OperatorNode >> evaluateIn: environment [
+	| op |
+	op := self operand evaluateIn: environment.
+	self operator = $-
+		ifTrue: [ ^0 - op ]
+]
+
+{ #category : #accessing }
 JbArity1OperatorNode >> operand [
 	^ operand
 ]
