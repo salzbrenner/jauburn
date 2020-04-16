@@ -19,6 +19,13 @@ JbIfNode >> condition: anObject [
 ]
 
 { #category : #accessing }
+JbIfNode >> executeIn: environment [
+	(condition evaluateIn: environment)
+		ifTrue: [ ^ trueStatements do: [ :stmt | stmt executeIn: environment ] ]  
+
+]
+
+{ #category : #accessing }
 JbIfNode >> trueStatements [
 	^ trueStatements
 ]
